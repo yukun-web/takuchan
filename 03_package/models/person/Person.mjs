@@ -18,8 +18,12 @@ export class Person {
     this.#birthday = birthday
   }
 
-  equals (person) {
-    return this.#id.equals(person.#id)
+  static create ({ name, birthday }) {
+    return new Person(new Id(), name, birthday)
+  }
+
+  is (person) {
+    return person instanceof Person && this.#id.equals(person.#id)
   }
 
   greet () {
