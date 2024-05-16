@@ -1,10 +1,24 @@
-import { Person } from './models/person/Person.mjs'
+import {
+  Person,
+  Id,
+  Name,
+  Birthday,
+} from './models/person/index.mjs'
 
-const firstPerson = Person.create({
-  name: 'John',
-  birthday: '1994-03-28',
-})
+const firstPerson = new Person(
+  new Id(),
+  new Name('John'),
+  new Birthday('1994-03-28'),
+)
 
 firstPerson.greet()
 firstPerson.introduceMySelf()
 console.log(firstPerson.equals(firstPerson))
+
+const secondPerson = new Person(
+  new Id(),
+  new Name('Jane'),
+  new Birthday('1994-04-02'),
+)
+
+console.log(firstPerson.equals(secondPerson))

@@ -1,7 +1,7 @@
 import assert from 'assert'
 import { Name } from './Name.mjs'
 import { Birthday } from './Birthday.mjs'
-import { PersonId } from './PersonId.mjs'
+import { Id } from './Id.mjs'
 
 export class Person {
   #id
@@ -9,21 +9,13 @@ export class Person {
   #birthday
 
   constructor (id, name, birthday) {
-    assert(id instanceof PersonId)
+    assert(id instanceof Id)
     assert(name instanceof Name)
     assert(birthday instanceof Birthday)
 
     this.#id = id
     this.#name = name
     this.#birthday = birthday
-  }
-
-  static create ({ name, birthday }) {
-    return new Person(
-      new PersonId(),
-      new Name(name),
-      new Birthday(birthday),
-    )
   }
 
   equals (person) {

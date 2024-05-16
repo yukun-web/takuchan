@@ -1,7 +1,7 @@
 import { ulid } from 'ulid'
 import assert from 'assert'
 
-export class PersonId {
+export class Id {
   #value
 
   constructor (value = ulid()) {
@@ -13,7 +13,7 @@ export class PersonId {
     return this.#value
   }
 
-  equals (personId) {
-    return this.#value === personId.#value
+  equals (otherId) {
+    return otherId instanceof Id && this.#value === otherId.#value
   }
 }
